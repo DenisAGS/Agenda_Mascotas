@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;1,700&family=Playfair:ital,wght@0,700;1,600&display=swap"
+        rel="stylesheet">
+    <title>Agenda</title>
+</head>
+
+<body>
+    <header>
+        <div class="toolbar" role="banner">
+            <a class="link-icon" href="">
+                <img src="../../assets/huella.png" alt="Logo" width="30" height="24"
+                    class="d-inline-block align-text-top">
+                Pet Care Center
+            </a>
+            <div class="title-container">
+                <h1 class="title-page">Agenda de mascotas</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="conteiner">
+
+        <!-- Formulario de Agregar -->
+        <div class="AddPet">
+            <h3>Agregar Mascota</h3>
+            <form (submit)="agregarMascota()">
+                <label>Nombre de la Mascota:</label>
+                <input type="text" [(ngModel)]="nuevaMascota.nombre" required>
+
+                <label>Nombre del Dueño:</label>
+                <input type="text" [(ngModel)]="nuevaMascota.nombreDueno" required>
+
+                <label>Enfermedad:</label>
+                <input type="text" [(ngModel)]="nuevaMascota.enfermedad" required>
+
+                <label>Edad:</label>
+                <input type="number" [(ngModel)]="nuevaMascota.edad" required>
+
+                <button class="BtnAdd" type="submit">Agregar</button>
+            </form>
+        </div>
+
+        <h3 class="title-lista">Listado de Mascotas</h3>
+
+        <div class="contenedor">
+            <!-- Listado de Mascotas -->
+            <input class="buscar-style" type="text" [(ngModel)]="busqueda"
+                placeholder="Buscar por nombre, enfermedad o fecha de ingreso">
+            <button class="Btn-Buscar" (click)="buscarMascotas()">Buscar</button>
+
+            <table class="cont-table">
+                <tr>
+                    <th class="title-table">Nombre</th>
+                    <th class="title-table">Dueño</th>
+                    <th class="title-table">Enfermedad</th>
+                    <th class="title-table">Edad</th>
+                    <th class="title-table">Fecha de Ingreso</th>
+                    <th class="title-table">Acciones</th>
+                </tr>
+                <tr *ngFor="let mascota of mascotas">
+                    <td class="title-table">{{ mascota.nombre }}</td>
+                    <td class="title-table">{{ mascota.nombreDueno }}</td>
+                    <td class="title-table">{{ mascota.enfermedad }}</td>
+                    <td class="title-table">{{ mascota.edad }}</td>
+                    <td class="title-table">{{ mascota.fechaIngreso }}</td>
+                    <td class="title-table">
+                        <button (click)="editarMascota(mascota)">Editar</button>
+                        <button (click)="eliminarMascota(mascota)">Eliminar</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
