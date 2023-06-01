@@ -34,16 +34,16 @@
             <h3>Agregar Mascota</h3>
             <form (submit)="agregarMascota()">
                 <label>Nombre de la Mascota:</label>
-                <input type="text" [(ngModel)]="nuevaMascota.nombre" required>
+                <input type="text" [(ngModel)]="nuevaMascota.nombre" name="nombreMascota" required>
 
                 <label>Nombre del Dueño:</label>
-                <input type="text" [(ngModel)]="nuevaMascota.nombreDueno" required>
+                <input type="text" [(ngModel)]="nuevaMascota.nombreDueno" name="nombreDueno" required>
 
                 <label>Enfermedad:</label>
-                <input type="text" [(ngModel)]="nuevaMascota.enfermedad" required>
+                <input type="text" [(ngModel)]="nuevaMascota.enfermedad" name="enfermedad" required>
 
                 <label>Edad:</label>
-                <input type="number" [(ngModel)]="nuevaMascota.edad" required>
+                <input type="number" [(ngModel)]="nuevaMascota.edad" name="edad" required>
 
                 <button class="BtnAdd" type="submit">Agregar</button>
             </form>

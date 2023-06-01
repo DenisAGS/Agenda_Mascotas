@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 interface Mascota {
   nombre: string;
@@ -18,9 +19,19 @@ interface Mascota {
 
 
 export class AgendaListaComponent {
-  mascotas: Mascota[] = [];
+  formulario: FormGroup;
+  mascotas: any[] = [];
   nuevaMascota: Mascota = { nombre: '', nombreDueno: '', enfermedad: '', edad: 0, fechaIngreso: '', activo: true };
   busqueda: string = '';
+
+  constructor(private formBuilder: FormBuilder) {
+    this.formulario = this.formBuilder.group({
+      nombreMascota: ['', Validators.required],
+      nombreDueno: ['', Validators.required],
+      enfermedad: ['', Validators.required],
+      edad: ['', Validators.required]
+    });
+  }
 
   agregarMascota() {
     console.log('Agregando mascota...');
@@ -30,13 +41,14 @@ export class AgendaListaComponent {
 
     // Agregar la nueva mascota al listado
     this.mascotas.push({ ...this.nuevaMascota });
+    
+    this.formulario.reset();
 
     // Limpiar los campos del formulario
     this.nuevaMascota = { nombre: '', nombreDueno: '', enfermedad: '', edad: 0, fechaIngreso: '', activo: true };
   }
 
   buscarMascotas() {
-    // Filtrar las mascotas por nombre, enfermedad o fecha de ingreso
     const busquedaMinusculas = this.busqueda.toLowerCase().trim();
     this.mascotas = this.mascotas.filter(mascota =>
       mascota.nombre.toLowerCase().includes(busquedaMinusculas) ||
@@ -46,7 +58,7 @@ export class AgendaListaComponent {
   }
 
   editarMascota(mascota: Mascota) {
-
+    console.log(mascota.nombre);
   }
 
   eliminarMascota(mascota: Mascota) {
