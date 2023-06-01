@@ -1,7 +1,7 @@
 <?php
 
 // Establecer la conexión con la base de datos PostgreSQL
-$dbconn = pg_connect("host=lucky.db.elephantsql.com  port=5432 dbname=qhhhiysh user=qhhhiysh password=nKMYmX1thuRC_lbT1mP7JYgr7Ao6C2Lj");
+$dbconn = pg_connect("host=localhost  port=5432 dbname=mascotas user=denissearelyg@gmail.com password=123");
 
 // Verificar la conexión
 if (!$dbconn) {

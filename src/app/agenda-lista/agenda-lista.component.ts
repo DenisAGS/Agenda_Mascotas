@@ -67,5 +67,4 @@ export class AgendaListaComponent {
       this.mascotas.splice(index, 1); // Eliminar la mascota de la lista
     }
   }
-  
 }

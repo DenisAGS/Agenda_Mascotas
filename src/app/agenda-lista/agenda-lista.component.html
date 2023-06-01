@@ -73,7 +73,12 @@
                     <td class="title-table">{{ mascota.edad }}</td>
                     <td class="title-table">{{ mascota.fechaIngreso }}</td>
                     <td class="title-table">
-                        <button class="accion-editar" (click)="editarMascota(mascota)">Editar</button>
+                        <ng-container *ngIf="mascotaEditando === mascota">
+                            <button class="accion-guardar" (click)="guardarMascota()">Guardar</button>
+                          </ng-container>
+                          <ng-container *ngIf="mascotaEditando !== mascota">
+                            <button class="accion-editar" (click)="editarMascota(mascota)">Editar</button>
+                          </ng-container>
                         <button class="accion-eliminar" (click)="eliminarMascota(mascota)">Eliminar</button>
                     </td>
                 </tr>
