@@ -189,3 +189,29 @@ label {
   justify-content: center;
   width: 100px;
 }
+
+
+.accion-editar{
+  background-color: #530d61;
+  border: none;
+  border-radius: 5px;
+  color: #FFFFFF;
+  height: 30px;
+  width: 70px;
+  font-weight: bolder;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.accion-eliminar{
+  background-color: #ffffff;
+  border-color: #530d61;
+  border: none;
+  border-radius: 5px;
+  color: #530d61;
+  height: 30px;
+  width: 70px;
+  font-weight: bolder;
+  cursor: pointer;
+  margin-right: 5px;
+}

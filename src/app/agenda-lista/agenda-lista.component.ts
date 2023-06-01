@@ -15,12 +15,15 @@ interface Mascota {
   templateUrl: './agenda-lista.component.html',
   styleUrls: ['./agenda-lista.component.css']
 })
+
+
 export class AgendaListaComponent {
   mascotas: Mascota[] = [];
   nuevaMascota: Mascota = { nombre: '', nombreDueno: '', enfermedad: '', edad: 0, fechaIngreso: '', activo: true };
   busqueda: string = '';
 
   agregarMascota() {
+    console.log('Agregando mascota...');
     // Generar la fecha de ingreso actual
     const fechaActual = new Date();
     this.nuevaMascota.fechaIngreso = fechaActual.toISOString();
@@ -43,11 +46,14 @@ export class AgendaListaComponent {
   }
 
   editarMascota(mascota: Mascota) {
-    // Implementar la lógica para editar una mascota
+
   }
 
   eliminarMascota(mascota: Mascota) {
-    // Implementar la lógica para eliminar una mascota
-    mascota.activo = false;
+    const index = this.mascotas.indexOf(mascota); // Obtener el índice de la mascota en la lista
+    if (index !== -1) {
+      this.mascotas.splice(index, 1); // Eliminar la mascota de la lista
+    }
   }
+  
 }

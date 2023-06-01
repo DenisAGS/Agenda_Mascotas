@@ -1,7 +1,7 @@
 <?php
 
 // Establecer la conexión con la base de datos PostgreSQL
-$dbconn = pg_connect("host=localhost port=5432 dbname=nombre_basedatos user=usuario password=contraseña");
+$dbconn = pg_connect("host=localhost port=5432 dbname=agenda user=qhhhiysh password=nKMYmX1thuRC_lbT1mP7JYgr7Ao6C2Lj");
 
 // Verificar la conexión
 if (!$dbconn) {
